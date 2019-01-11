@@ -23,3 +23,23 @@
 </body>
 
 </html>
+corrigé :
+function shoesize() {
+    var shoeSize = document.getElementById("shoeSize").value;
+    var yearOfBirth = document.getElementById("yearOfBirth").value;
+    var regexNumb = /^[0-9]{1,4}$/;     //{n,m}= nombre de fois autorisé
+    if ((regexNumb.test(shoeSize) == false) || (shoeSize >= 70) || (shoeSize<=10)) {
+        alert("pointure incorrect");
+    }
+    else if ((regexNumb.test(yearOfBirth) == false) || (yearOfBirth >= Date.now) || (yearOfBirth <= 1900)) {
+        alert("ceci n'est pas une année valide")
+    } else {
+        shoeSize = shoeSize * 2;        //shoeSize *=2;
+        shoeSize = shoeSize + 5;        //shoeSize +=5;
+        shoeSize = shoeSize * 50;
+        shoeSize = shoeSize - yearOfBirth;
+        shoeSize = shoeSize + 1769;
+        // shoeSize = ((((shoeSize) * 2 + 5) * 50) - (yearOfBirth)) + 1769;
+        alert(shoeSize);
+    }
+}
